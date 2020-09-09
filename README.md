@@ -1,4 +1,4 @@
-# investor-side-vue
+# Vue Starter Template
 
 ## Project setup
 ```
