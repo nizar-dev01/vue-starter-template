@@ -1,7 +1,5 @@
 <template>
-  <div>
-    Home
-  </div>
+  <div>404</div>
 </template>
 
 <script>

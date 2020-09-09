@@ -1,7 +1,5 @@
 <template>
-  <div>
-    Home
-  </div>
+  <div>preloader</div>
 </template>
 
 <script>
