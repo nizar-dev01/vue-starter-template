@@ -2,6 +2,16 @@
   <div class="alert-bg" @click="click">
       <div class="msg-box" ref="msg">
             <div class="icon-box">
+                <img
+                    v-if="data.type=='warning'"
+                    src="@image/icons/error.svg"
+                    class="icon"
+                />
+                <img
+                    v-if="data.type=='success'"
+                    src="@image/icons/tick.svg"
+                    class="icon"
+                />
             </div>
             <!-- message -->
             <p class="msg">
@@ -50,3 +60,8 @@ export default {
     }
 }
 </script>
+<style
+    lang="scss"
+    scoped
+    src="~c/alert.scss"
+></style>

@@ -1,12 +1,7 @@
 <template>
   <div id="app">
     <!-- header section -->
-      <Head
-        @toggle="toggleMenu"
-        :toggleOn="toggleKey"
-        ref="head"
-        v-if="!plane"
-      />
+      <Head v-if="!plane" />
     <!-- /header section -->
     <!-- router view -->
       <router-view
@@ -14,9 +9,7 @@
       ></router-view>
     <!-- /router view -->
     <!-- footer section -->
-      <Footer
-        v-if="!plane"
-      />
+      <Footer v-if="!plane" />
     <!-- /footersection -->
     <!-- alert -->
     <Alert
@@ -37,9 +30,14 @@ export default {
   name: 'App',
   data(){
     return {
-      toggleKey:false,
       plane:false
     }
+  },
+  created(){
+    this.$store.dispatch('init/alert',{
+      type: Math.round(Math.random() + 1) == 1 ? 'success' : 'warning',
+      message: 'Hi Hi'
+    })
   },
   computed:{
     ...mapGetters({
@@ -57,8 +55,6 @@ export default {
     $route:{
       immediate:true,
       handler(to,from){
-        // hide opened menus
-        this.toggleKey = false;
         // hide footer and header if the page has to be plane
         if(to.meta && to.meta.plane){
           this.plane = true;
@@ -98,3 +94,7 @@ export default {
   }
 }
 </script>
+<style
+  lang="scss"
+  src="~/app.scss"
+></style>
